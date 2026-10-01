@@ -607,7 +607,7 @@ footer a:hover{color:var(--yellow)}
     <div class="wrap about">
       <div class="about-card">
         <img class="sticker about-sticker float" src="img/sticker-logo.jpg" alt="Esponjita, la mascota de El Rincón de la Limpieza" width="190" height="190">
-        <div class="yrs"><span id="years">21</span><small>años en el barrio</small></div>
+        <div class="yrs"><span>+20</span><small>años en el barrio</small></div>
         <p>Somos un negocio familiar. Abrimos en 2005 sobre la Avenida Avellaneda, en Virreyes, y desde entonces atendemos a los vecinos con buenos precios y confianza.</p>
         <p>Ahora damos un paso más: <b style="color:var(--ink)">te llevamos el pedido a tu casa</b>, para que no tengas que moverte ni cargar nada.</p>
       </div>
@@ -754,7 +754,7 @@ const CONFIG = {
     { estilo: "s-yellow", kicker: "Nuevo · Combos armados", titulo: "¡Super <em>Combos</em>!", texto: "Todo lo que necesitás, ya armado y más barato. Elegí tu combo y te lo llevamos a casa.", boton: "Ver combos", link: "#combos", mascota: "img/esponja-rollos.png" },
     { estilo: "s-pink",   kicker: "Pedidos online", titulo: "Tu limpieza, <em>sin moverte de casa</em>", texto: "Elegí tus productos, mandanos el pedido y te lo llevamos a la puerta.", boton: "Ver productos", link: "#productos", fondo: "banner1.webp" },
     { estilo: "s-ink",    kicker: "Envíos a domicilio", titulo: "Llegamos a <em>Victoria, Beccar, Martínez y Olivos</em>", texto: "Los pedidos del día salen esa misma tarde en nuestra camioneta.", boton: "Ver zonas", link: "#envios", mascota: "img/sticker-envios.jpg", sticker: true },
-    { estilo: "s-pink",   kicker: "Desde 2005", titulo: "<em>21 años</em> cuidando tu casa", texto: "El mismo negocio de barrio de siempre, ahora también online.", boton: "Conocenos", link: "#local", mascota: "img/sticker-logo.jpg", sticker: true },
+    { estilo: "s-pink",   kicker: "Desde 2005", titulo: "<em>+20 años</em> cuidando tu casa", texto: "El mismo negocio de barrio de siempre, ahora también online.", boton: "Conocenos", link: "#local", mascota: "img/sticker-logo.jpg", sticker: true },
   ],
 };
 
@@ -1124,7 +1124,6 @@ $("#zones").innerHTML = CONFIG.zonas.map((z, i) => `<span class="zone ${i ? "" :
 $("#shipRule").innerHTML = CONFIG.envioGratisDesde ? `<b>Envío gratis</b> en compras desde ${fmt(CONFIG.envioGratisDesde)}.` : "";
 $("#fZone").innerHTML = CONFIG.zonas.map(z => `<option>${z}</option>`).join("") + "<option>Otra (la aclaro abajo)</option>";
 $("#yr").textContent = new Date().getFullYear();
-$("#years").textContent = new Date().getFullYear() - 2005;
 if (CONFIG.whatsapp) {
   const wa = `https://wa.me/${CONFIG.whatsapp}`;
   $("#waFloat").hidden = $("#hdWa").hidden = false; $("#waFloat").href = $("#hdWa").href = wa;
