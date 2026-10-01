@@ -194,8 +194,7 @@ nav.cats-nav a:hover{color:var(--pink);border-color:var(--pink)}
   .combo{scroll-snap-align:center}
 }
 .ph-combo{width:100%;height:100%;display:grid;place-items:center;position:relative}
-.ph-combo .emos{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;font-size:44px;line-height:1}
-.ph-combo .masc{position:absolute;right:4px;bottom:0;height:46%;width:auto}
+.ph-combo .emos{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;font-size:clamp(40px,6vw,58px);line-height:1}
 
 .delivery-masc{position:absolute;right:28px;top:-6px;width:120px;z-index:2}
 .step{padding-top:20px}
@@ -872,7 +871,7 @@ const comboEmojis = p => [...new Set(p.incluye.map(([id]) => catOf(byId(id).cat)
 function thumb(p, cls = "ph-fallback") {
   const c = catOf(p.cat);
   if (p.foto) return `<img src="${p.foto}" alt="${p.nombre}" loading="lazy">`;
-  if (p.combo) return `<div class="ph-combo" style="background:${p.color}"><div class="emos">${comboEmojis(p).map(e => `<span>${e}</span>`).join("")}</div><img class="masc" src="${p.mascota}" alt=""></div>`;
+  if (p.combo) return `<div class="ph-combo" style="background:${p.color}"><div class="emos">${comboEmojis(p).map(e => `<span>${e}</span>`).join("")}</div></div>`;
   return `<div class="${cls}" style="background:${c.color}">${c.emoji}</div>`;
 }
 function comboHTML(p) {
@@ -1044,7 +1043,7 @@ function renderCart() {
   $("#shipCost").textContent = s && sub >= CONFIG.envioGratisDesde ? "¡Gratis!" : "A coordinar";
   $("#lines").innerHTML = its.length ? its.map(({ p, n }) => `
     <div class="line">
-      <div class="th" style="background:${p.combo ? p.color : catOf(p.cat).color}">${p.foto ? `<img src="${p.foto}" alt="">` : p.combo ? `<img src="${p.mascota}" alt="">` : catOf(p.cat).emoji}</div>
+      <div class="th" style="background:${p.combo ? p.color : catOf(p.cat).color}">${p.foto ? `<img src="${p.foto}" alt="">` : p.combo ? "🎁" : catOf(p.cat).emoji}</div>
       <div><b>${p.nombre}</b><span class="sub">${fmt(p.precio)} c/u</span>
         <div class="stepper"><button data-dec="${p.id}" aria-label="Quitar uno">−</button><span>${n}</span><button data-inc="${p.id}" aria-label="Agregar uno">+</button></div></div>
       <div class="right"><span class="lt">${fmt(p.precio * n)}</span><button class="rm" data-rm="${p.id}">Eliminar</button></div>
